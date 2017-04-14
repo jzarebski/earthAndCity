@@ -1,0 +1,35 @@
+@import "common/variables";
+
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+@import "../../bower_components/bootstrap/scss/bootstrap.scss";
+// endbower
+
+@import "common/global";
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+@import "components/grid";
+@import "components/banner";
+@import "components/wp-classes";
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
+@import "layouts/pages";
+@import "layouts/posts";
+@import "layouts/tinymce";
+@import "taxonomy-impact";
+@import "layouts/catering";
+<<<<<<< HEAD
+@import "layouts/findus";
+@import "layouts/fonts";
+=======
+// @import "archive-ourimpact";
+@import "layouts/findus";
+
+@import "layouts/jquerymCustomScrollbar"
+
+@import "layouts/faq";
+
+
+>>>>>>> naapak/master

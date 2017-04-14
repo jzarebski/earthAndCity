@@ -1,0 +1,32 @@
+.flex {display: flex;}
+.flex-impact-content {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.font-xl{
+  font-size: x-large;
+}
+
+.color-black a{
+  color:black;
+}
+
+.side-image img{
+  width:45vh;
+  padding:25px;
+}
+
+//// Naresh CSS
+
+.impactPaddingBottom {padding-bottom: 2vh !important; margin-bottom: 2vh;}
+// .term1, .term2, .term3 { padding-bottom: 2vh !important; }
+.buttonImage { display: flex; justify-content:center; align-items: flex-start;}
+
+a:focus, a:hover {
+   
+    text-decoration: none !important;
+    cursor: pointer !important;
+
+}

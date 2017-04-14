@@ -1,44 +1,43 @@
-<p>I am in the taxonomy-venue.php</p>
-
-
 <?php
-            $tax = get_object_taxonomies (array ('locations', "venue"));
+    
+    $tax = get_object_taxonomies (array ('locations', "venue"));
             // var_dump($tax);
-              $terms = get_terms($tax, array('hide_empty' => false,)); 
+    $terms = get_terms($tax, array('hide_empty' => false,)); 
               // print_r($terms);
-
              ?> 
-            
-             
-             <div class=" marginBottom  linksSpace" >
-             	 <!-- <div class=""> -->
-             <?foreach ($terms as $term) : ?>
-            
-			<div class=" col-sm-4 ">
- 		 		
- 		 	<a class="btn btn-block linkButton" role="button"  href="<?php echo get_term_link($term); ?>"><?php echo $term->name ?></a>
- 		 		
- 		 	</div>
- 		 	
- 			
- 		 	<? endforeach; ?>
- 		 	<!-- </div> -->
-			</div>
-			
- 		 	
- 		 	
- 		 
+        
+<?php $path = get_template_directory_uri().'/assets/images/IconsPNG/right-thin-chevron.png';  
+     ?>
+
+<div class="flex-impact-content color-black  marginTop font-xl impactPaddingBottom marginBottom ">
+    <?php $i=0; foreach ($terms as $term) : $i++ ?>
+        <?php if(get_query_var('venue') == $term->slug){ $classOfbutton = "term".$i;
+            $style= ' background: url("'.$path.'") center bottom no-repeat; background-size: contain ;height:20px; width:40px; z-index=2' ;
+
+        } else { $classOfbutton =""; $style= "";} ?>
+
+        <div class=" col-sm-4 textCenter   ">
+        <a class=" <?php echo $classOfbutton?>" href="<?php echo get_term_link($term); ?>"><?php echo $term->name ?></a>
+        <div class=" marginTop buttonImage"><div   style='<?php echo $style; ?>' > </div> </div>
+        </div>
+     
+    <?php endforeach; ?>
+</div>
+
+
 
  <?php if ( have_posts() ) : ?>
 
-			<header class="page-header textCenter marginBottom ">
-				<?php
+			<header class="page-header textCenter marginBottom marginTop">
+			<!-- 	<?php
 					$taxonomies = get_queried_object();
 				
 					// print_r($taxonomies);
 					// usort($taxonomies);
+					echo ( get_post_type() );
 				?>
-					<h1 class="caps marginBottom"><?php echo $taxonomies->name?></h1>
+
+					<h1 class="caps marginBottom"><?php echo $taxonomies->name?></h1> -->
  		 			
 
  		 	<?php  $countingPosts = get_queried_object()->count;
@@ -52,7 +51,7 @@
         <?php  }?>  <!-- search bar -->
         	
             
-	</div class="container  ">
+	</div class="container marginTop ">
  		 			
 			</header><!-- .page-header -->
 			<?php endif; ?>		
@@ -125,5 +124,16 @@
 			</div> <!-- google maps -->
 
 		
+	<?php if(get_query_var('venue') == 'contact') { ?> 
+	</div>
+	<h1 class="textCenter"> Have a question? </h1>
+	<div class="container-fluid margin marginBottom">
+		<p class="grey">*required</p>
+		<?php 
+
+
+			echo do_shortcode('[contact-form-7 id="318" title="Contact-Us"]');
+
+			} ?>
 
 	</div>
